@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react'
+import './login.scss';
 import validate from '@utils/validate';
 import api from '@api';
+import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 
 export default function Login() {
+  const navigate = useNavigate();
   useEffect(() => {
-    if(localStorage.getItem("token")) {
-      window.location.href = "/";
+    if (localStorage.getItem("token")) {
+      // window.location.href = "/";
     }
   })
   return (
-    <div>
-      Login Page
+    <div className='login_container'>
+      <h2>Log In to your Account</h2>
       <form onSubmit={async (e) => {
         e.preventDefault();
         let data = {
@@ -20,32 +24,36 @@ export default function Login() {
         }
 
         try {
-          alert("ok đã gửi")
           let result = await api.users.login(data);
           if (result.status == 200) {
             if (result.data.token == undefined) {
               alert("Đăng nhập thất bại")
-            }else {
+            } else {
               localStorage.setItem("token", result.data.token);
-              alert("Đăng nhập Thành Công")
+              message.success("Login Successfully!")
+              setTimeout(() => {
+                window.location.href = "/"
+              }, 2000)
+              // window.location.href = "/";
             }
-      
-            
-          }else {
+          } else {
             alert(result.data.message)
           }
-        }catch{err} {
+        } catch (err) {
 
         }
 
       }}>
-        User Name or Email
-        <input name='user_name' type="text" />
-        <br></br>
-        Password
-        <input name='password' type="password" />
-        <br></br>
-        <button type='submit'>Login</button>
+        <div className="form-control">
+          <label htmlFor="userName">User Name or Email:</label><br />
+          <input type="text" name='user_name' id='userName' placeholder='User name or Email' />
+        </div>
+        <div className="form-control">
+          <label htmlFor="password">Password:</label><br />
+          <input type="text" name='password' id='password' placeholder='Password' />
+        </div>
+        <button type='submit' className='login_btn'>Login</button>
+        <button type='button' className='back_btn' onClick={() => navigate("/register")}>Create Account</button>
       </form>
     </div>
   )

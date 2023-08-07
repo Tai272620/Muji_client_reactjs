@@ -1,0 +1,22 @@
+.category_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 50px;
+    
+    .category_item {
+       width: 15%;
+       cursor: pointer;
+       img {
+        width: 100%;
+       }
+       p {
+        text-align: center;
+        margin-top: 10px;
+       }
+    }
+}
+.newItem {
+    font-size: 30px;
+}

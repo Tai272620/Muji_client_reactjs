@@ -1,0 +1,31 @@
+.menu_container {
+    position: relative;
+    .WDT100 {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 70px;
+    }
+    .MAINBAR {
+        width: 95%;
+        height: 300px;
+        padding: 20px;
+        margin: 0 auto;
+        position: absolute;
+        left: 30px;
+        background-color: #fff;
+        .product {
+            width: 200px;
+            padding: 10px;
+            cursor: pointer;
+            img {
+                width: 100%;
+            }
+            h5 {
+                text-align: center;
+            }
+            p {
+                text-align: right;
+            }
+        }
+    }
+}

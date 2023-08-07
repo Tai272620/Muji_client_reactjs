@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import Loading from "./components/Loading";
+import SpinnerLoading from "./components/SpinnerLoading";
 
 const LazyLoad = (importFunc) => {
   const LazyComponent = lazy(() => {
