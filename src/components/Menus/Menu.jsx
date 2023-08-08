@@ -30,16 +30,16 @@ class MenuComponent extends React.Component {
                             <Link to="/women">Women</Link>
                         </div>
                         <div className="MENHOV" onMouseOver={() => this.showMenu('kids')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                            <a href="#">Kids</a>
+                            <Link to="/kids">Kids</Link>
                         </div>
                         <div className="MENHOV" onMouseOver={() => this.showMenu('furniture')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                            <a href="#">Furniture</a>
+                            <Link to="/furniture">Furniture</Link>
                         </div>
                         <div className="MENHOV" onMouseOver={() => this.showMenu('beauty')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                            <a href="#">Beauty</a>
+                            <Link to="/beauty">Beauty</Link>
                         </div>
                         <div className="MENHOV" onMouseOver={() => this.showMenu('stationery')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                            <a href="#">Stationery</a>
+                            <Link to="/stationery">Stationery</Link>
                         </div>
                     </div>
                 </div>
@@ -60,33 +60,13 @@ class MenuComponent extends React.Component {
                                     </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <Link to="men/men-trousers&shorts" className="FNT13">
-                                        Trousers & Shorts
+                                    <Link to="men/men-trousers" className="FNT13">
+                                        Trousers
                                     </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <Link to="men/hoodies&sweatshirts" className="FNT13">
-                                        Hoodies & Sweatshirts
-                                    </Link>
-                                </div>
-                                <div className="PAD6">
-                                    <Link to="men/jumpers&cardigans" className="FNT13">
-                                        Jumpers & Cardigans
-                                    </Link>
-                                </div>
-                                <div className="PAD6">
-                                    <Link to="men/coats&jackets" className="FNT13">
-                                        Coats & Jackets
-                                    </Link>
-                                </div>
-                                <div className="PAD6">
-                                    <Link to="men/tops&t-shirts" className="FNT13">
-                                        Tops & T-Shirts
-                                    </Link>
-                                </div>
-                                <div className="PAD6">
-                                    <Link to="men/pyjamas&loungewear" className="FNT13">
-                                        Pyjamas & Loungewear
+                                    <Link to="men/men-jackets" className="FNT13">
+                                        Jackets
                                     </Link>
                                 </div>
                             </div>
@@ -140,39 +120,19 @@ class MenuComponent extends React.Component {
                         >
                             <div className="">
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale" className="FNT13">
-                                        Shirts & Blouses
-                                    </a>
+                                    <Link to="women/women-shirts" className="FNT13">
+                                        Shirts
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/women" className="FNT13">
-                                        Tops & T-Shirts
-                                    </a>
+                                    <Link to="women/women-trousers" className="FNT13">
+                                        Trousers
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/men" className="FNT13">
-                                        Tunics & Dresses
-                                    </a>
-                                </div>
-                                <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/kids" className="FNT13">
-                                        Trousers, Skirts & Shorts
-                                    </a>
-                                </div>
-                                <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/accessories" className="FNT13">
-                                        Jumpers & Cardigans
-                                    </a>
-                                </div>
-                                <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/home" className="FNT13">
-                                        Coats & Jackets
-                                    </a>
-                                </div>
-                                <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/bedding" className="FNT13">
-                                        Pyjamas & Loungewear
-                                    </a>
+                                    <Link to="women/women-jackets" className="FNT13">
+                                        Jackets
+                                    </Link>
                                 </div>
                             </div>
                             <div className='product'>
@@ -225,9 +185,9 @@ class MenuComponent extends React.Component {
                         >
                             <div className="">
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale" className="FNT13">
+                                    <Link to="baby/baby-clothes" className="FNT13">
                                         Baby Clothes & Accessories
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className='product'>
@@ -280,14 +240,14 @@ class MenuComponent extends React.Component {
                         >
                             <div className="">
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale" className="FNT13">
+                                    <Link to="furniture/beds" className="FNT13">
                                         Beds
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale" className="FNT13">
+                                    <Link to="urniture/mattresses" className="FNT13">
                                         Mattresses
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className='product'>
@@ -340,24 +300,24 @@ class MenuComponent extends React.Component {
                         >
                             <div className="">
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale" className="FNT13">
+                                    <Link to="beauty/ageing-care" className="FNT13">
                                         Ageing Care
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/women" className="FNT13">
+                                    <Link to="beauty/cleansing" className="FNT13">
                                         Cleansing
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/men" className="FNT13">
+                                    <Link to="beauty/toning" className="FNT13">
                                         Toning
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/kids" className="FNT13">
+                                    <Link to="beauty/moisturising" className="FNT13">
                                         Moisturising
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className='product'>
@@ -410,24 +370,24 @@ class MenuComponent extends React.Component {
                         >
                             <div className="">
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale" className="FNT13">
+                                    <Link to="stationery/pen-sets" className="FNT13">
                                         Pen Sets
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/women" className="FNT13">
+                                    <Link to="stationery/gel-pens" className="FNT13">
                                         Gel Pens
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/men" className="FNT13">
+                                    <Link to="stationery/ruled-notebooks" className="FNT13">
                                         Ruled Notebooks
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="PAD6">
-                                    <a href="https://www.muji.eu/uk/sale/kids" className="FNT13">
+                                    <Link to="stationery/plain-notebooks" className="FNT13">
                                         Plain Notebooks
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div className='product'>

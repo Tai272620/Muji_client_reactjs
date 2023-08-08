@@ -7,7 +7,7 @@ export default function ListAllProduct() {
     console.log("category", category)
     return (
         <div className='listAll_container'>
-            <h2>{category}swear</h2>
+            <h2>{category}</h2>
             <div className='main_image'>
                 <img src="./images/banners/CatID_120000.jpg" alt="" />
             </div>

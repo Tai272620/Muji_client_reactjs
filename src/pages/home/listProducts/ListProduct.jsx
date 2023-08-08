@@ -14,8 +14,11 @@ export default function ListProduct() {
         if (type == "men-shirts") {
             dispatch(categoryActions.findByCategory(1));
         }
-        if (type == "men-trousers&shorts") {
+        if (type == "men-trousers") {
             dispatch(categoryActions.findByCategory(2));
+        }
+        if (type == "men-jackets") {
+            dispatch(categoryActions.findByCategory(3));
         }
     }, [type])
 
