@@ -1,9 +1,18 @@
 .menu_container {
     position: relative;
+    a {
+        color: #333333 !important;
+    }
     .WDT100 {
         display: flex;
         justify-content: space-between;
         padding: 10px 70px;
+        .MENHOV {
+            color: black !important;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
     .MAINBAR {
         width: 95%;
@@ -13,6 +22,11 @@
         position: absolute;
         left: 30px;
         background-color: #fff;
+        .PAD6 {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
         .product {
             width: 200px;
             padding: 10px;

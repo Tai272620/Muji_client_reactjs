@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './navbar.scss';
 import { useNavigate } from 'react-router-dom';
-import Dropdown from '../Dropdowns/DropdownLogin';
 import DropdownLogout from '../Dropdowns/DropdownLogout';
 import DropdownLogin from '../Dropdowns/DropdownLogin';
-import MenuComponent from '../Menus/Menu';
-import CartModal from '../Carts/CartModal';
+import MenuFull from '../Menus/MenuFull';
+import SearchModal from '../Search/Search';
 
-export default function Navbar({ userStore, categoryStore, mainCategoryStore }) {
-  // console.log("category", categoryStore)
-  // console.log("mainCategoryStore", mainCategoryStore.data)
+
+export default function Navbar({ userStore, cartStore }) {
+  const totalCart = cartStore?.data?.cart_details?.reduce((total, product) => {
+    return total + product.quantity
+  }, 0);
+  const [cartCount, setCartCount] = useState(totalCart)
+  // console.log("totalCart", totalCart)
+  // console.log("cartStore", cartStore.data)
   const navigate = useNavigate();
   const [isShown, setIsShown] = useState(false);
   const [isLogin, setIsLogin] = useState(() => localStorage.getItem("token") || null);
@@ -31,10 +35,8 @@ export default function Navbar({ userStore, categoryStore, mainCategoryStore }) 
             <img className='logo' src="https://firebasestorage.googleapis.com/v0/b/muji-app-8b909.appspot.com/o/images%2Flogo%2Flogo.png?alt=media&token=93662449-3f09-4ab4-bbc0-83db7bcd6f4f" alt="logo" onClick={() => navigate("/")} />
           </div>
           <div className="nav-right">
-            <span className='icon_container'>
-              <ion-icon name="search-outline"></ion-icon>
-              <span className='icon'>search</span>
-              {/* <Search /> */}
+            <span className='search_container'>
+              <SearchModal />
             </span>
             <span className='account_container'>
               {isLogin ? <DropdownLogout userStore={userStore} /> : <DropdownLogin />}
@@ -43,14 +45,14 @@ export default function Navbar({ userStore, categoryStore, mainCategoryStore }) 
               <ion-icon name="heart-outline"></ion-icon>
               <span className='icon'>favorite</span>
             </span>
-            <span className='cart-icon'>
-              <span><ion-icon name="cart-outline"></ion-icon><span className='cart-quantity'>0</span></span>
+            <span className='cart-icon' onClick={() => navigate("/cart")}>
+              <span><ion-icon name="cart-outline"></ion-icon><span className='cart-quantity'>{totalCart}</span></span>
               <span className='icon'>cart</span>
             </span>
           </div>
         </div>
         <div className="navbar-dropdown">
-          <MenuComponent mainCategoryStore={mainCategoryStore} />
+          <MenuFull />
         </div>
       </div>
     </nav>

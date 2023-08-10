@@ -1,5 +1,6 @@
 import React from 'react';
 import './dropdown.scss';
+import { Link } from 'react-router-dom';
 
 export default function DropdownLogin() {
     return (
@@ -16,14 +17,14 @@ export default function DropdownLogin() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                    <a className="dropdown-item" href="register">
+                    <Link className="dropdown-item" to="register">
                         Register
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a className="dropdown-item" href="login">
+                    <Link className="dropdown-item" to="login">
                         Login
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </div>

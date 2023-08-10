@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import './admin.scss';
 import axios from 'axios';
 import { message } from 'antd';
+
 message.config({
     top: 60,
     duration: 1,
@@ -19,9 +20,13 @@ export default function Admin() {
                 .then(res => {
                     setCategories(res.data.data)
                 })
+                .catch(err => {
+                    console.log("err", err)
+                })
+
         }, [])
     } catch (err) {
-
+        // console.log("err", err);
     }
 
     return (
@@ -31,7 +36,7 @@ export default function Admin() {
             let newProductInfor = {
                 category_id: Number(eventForm.target.category_id.value),
                 name: eventForm.target.name.value,
-                desc: eventForm.target.desc.value,
+                des: eventForm.target.des.value,
                 price: Number(eventForm.target.price.value),
             }
 
@@ -50,7 +55,6 @@ export default function Admin() {
                 })
                 .then(res => {
                     message.success("Add Product Successfully!")
-                    // console.log("res", res)
                 })
                 .catch(err => {
                     console.log("err", err)
@@ -66,7 +70,7 @@ export default function Admin() {
                     </div>
                     <div className="form_group">
                         <label htmlFor="">Description</label><br />
-                        <textarea type="text" name='desc' />
+                        <textarea type="text" name='des' />
                     </div>
                     <div className="form_group">
                         <label htmlFor="">Price</label><br />

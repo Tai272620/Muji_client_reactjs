@@ -70,20 +70,20 @@ class MenuComponent extends React.Component {
                                     </Link>
                                 </div>
                             </div>
-                            <div className='product'>
+                            <Link to="/products/1" className='product'>
                                 <img src="./images/categories/cate_01.avif" alt="" />
                                 <div className='product_infor'>
                                     <h5>Name</h5>
                                     <p>1000</p>
                                 </div>
-                            </div>
-                            <div className='product'>
+                            </Link>
+                            <Link to="/products/2" className='product'>
                                 <img src="./images/categories/cate_01.avif" alt="" />
                                 <div className='product_infor'>
                                     <h5>Name</h5>
                                     <p>1000</p>
                                 </div>
-                            </div>
+                            </Link>
                             <div className='product'>
                                 <img src="./images/categories/cate_01.avif" alt="" />
                                 <div className='product_infor'>

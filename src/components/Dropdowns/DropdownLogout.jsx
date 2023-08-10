@@ -3,12 +3,10 @@ import './dropdown.scss';
 import { useNavigate } from 'react-router-dom';
 
 export default function DropdownLogout({ userStore }) {
-    // console.log("userStore", userStore);
     const navigate = useNavigate();
     const handleLogout = () => {
         if (window.confirm("Bạn có muốn đăng xuất không?")) {
             localStorage.removeItem("token");
-            // dispatch(userLoginActions.logOut());
             navigate("/login");
         }
     };

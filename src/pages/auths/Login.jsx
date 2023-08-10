@@ -34,7 +34,6 @@ export default function Login() {
               setTimeout(() => {
                 window.location.href = "/"
               }, 2000)
-              // window.location.href = "/";
             }
           } else {
             alert(result.data.message)

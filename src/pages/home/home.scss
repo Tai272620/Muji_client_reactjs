@@ -33,13 +33,12 @@
   }
   .body_container {
     width: 100%;
-    // height: 100vh;
-    // background-color: $cl_body_main;
     display: flex;
     justify-content: center;
     .body_container_center {
       width: $maxW;
       height: 100%;
+      padding: 0px 50px;
     }
   }
   .footer_container {

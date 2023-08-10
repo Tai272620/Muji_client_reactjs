@@ -47,7 +47,7 @@ export default function Footer() {
                                 <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                     {/* Content */}
                                     <h6 className="text-uppercase fw-bold mb-4">
-                                        <img src="./images/logo.png" alt="" className='logo_footer' />
+                                        <img src="https://firebasestorage.googleapis.com/v0/b/muji-app-8b909.appspot.com/o/images%2Flogo%2Flogo.png?alt=media&token=93662449-3f09-4ab4-bbc0-83db7bcd6f4f" alt="" className='logo_footer' />
                                     </h6>
                                     {/* <p>
                                         Here you can use rows and columns to organize your footer content.
