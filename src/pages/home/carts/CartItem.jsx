@@ -120,7 +120,7 @@ export default function CartItem({ product }) {
                             </span></button>
                         </div>
                         <div style={{ width: 80 }}>
-                            <h5 className="mb-0">{convertToUSD(product.product.price * quantity)}</h5>
+                            <h5 className="mb-0">{convertToUSD(product.product.price)}</h5>
                         </div>
                         <a href="#!" style={{ color: "#cecece" }} onClick={() => handleDelete(product.id)}>
                             <i className="fas fa-trash-alt" />
