@@ -9,11 +9,10 @@ export default function ListProduct() {
     const dispatch = useDispatch();
     const { category_id } = useParams();
 
-    // console.log("category_id", category_id)
-
     useEffect(() => {
         dispatch(productActions.findByCategory(parseInt(category_id)));
     }, [category_id])
+
 
     let imgUrl;
     if (category_id == "1" || category_id == "2" || category_id == "3") {

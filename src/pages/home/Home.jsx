@@ -1,6 +1,6 @@
 import "./home.scss";
 import { Outlet } from "react-router-dom";
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import Navbar from '@components/Navbars/Navbar'
 
@@ -14,8 +14,24 @@ function Home() {
 
   const { userStore, cartStore } = useContext(RootContext);
 
-  const { t } = useTranslation();
+  // useEffect(() => {
+  //   console.log("userStore", userStore.data?.role);
+  // }, [userStore])
 
+  const checkAdmin = () => {
+    if (userStore.data?.role == "ADMIN") {
+      return true
+    }
+    return false
+  }
+
+  // useEffect(() => {
+  //   console.log("checkAdmin", checkAdmin());
+  // }, [userStore])
+
+  // console.log("userStore", userStore);
+
+  const { t } = useTranslation();
 
   return (
     <div className="root_page">

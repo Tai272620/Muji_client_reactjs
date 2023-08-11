@@ -26,6 +26,10 @@
         flex-direction: column;
         justify-content: center;
         margin-bottom: 10px;
+        .error {
+            color: red;
+            font-size: 10px;
+        }
     }
     .register_btn {
         background-color: #8e0118;

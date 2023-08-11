@@ -14,11 +14,18 @@ export default function Navbar({ userStore, cartStore }) {
   const [cartCount, setCartCount] = useState(totalCart)
   const navigate = useNavigate();
   const [isShown, setIsShown] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [isLogin, setIsLogin] = useState(() => localStorage.getItem("token") || null);
-  function checkIsLogin() {
-    const token = localStorage.getItem("token");
-    setIsLogin(token);
+
+  const checkAdmin = () => {
+    if (userStore.data?.role == "ADMIN") {
+      setIsAdmin(!isAdmin)
+    }
   }
+
+  useEffect(() => {
+    checkAdmin()
+  }, [userStore])
 
   return (
     <nav>
@@ -26,7 +33,7 @@ export default function Navbar({ userStore, cartStore }) {
         <div className="navbar-top">
           <span>MUJI Membership</span>
           <span>Store Locator</span>
-          <span>Support Pages</span>
+          {isAdmin ? <span onClick={() => navigate("/admin")}>Admin</span> : <span>Support Pages</span>}
         </div>
         <div className="navbar-bottom">
           <div className="nav-left">

@@ -48,7 +48,7 @@ function SearchModal() {
             }
         }, 700); // sau 700 ms không gõ thì thực thi
     }
-    console.log("searchData", searchData);
+    // console.log("searchData", searchData);
     return (
         <>
             <Button variant="light" onClick={handleShow} size="sm" className="search-btn-container">

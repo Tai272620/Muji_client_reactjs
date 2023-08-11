@@ -4,6 +4,10 @@
     width: 30%;
     margin: 100px auto;
     padding: 20px;
+    .error-message {
+        color: red;
+        font-size: 12px;
+    }
     h2 {
         font-size: 20px;
         color: #8e0118;

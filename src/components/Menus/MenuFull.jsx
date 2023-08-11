@@ -18,22 +18,22 @@ function MenuFull() {
             <div className="CATBAR MOBSZE TABSZE">
                 <div className="WDT100 CATCNT">
                     <div className="MENHOV" onMouseOver={() => showMenu('Homeware')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                        <Link to="/Homeware">Homeware</Link>
+                        <span>Homeware</span>
                     </div>
                     <div className="MENHOV" onMouseOver={() => showMenu('Travel')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                        <Link to="/Travel">Travel</Link>
+                        <span>Travel</span>
                     </div>
                     <div className="MENHOV" onMouseOver={() => showMenu('Furniture')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                        <Link to="/Furniture">Furniture</Link>
+                        <span>Furniture</span>
                     </div>
                     <div className="MENHOV" onMouseOver={() => showMenu('Beauty')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                        <Link to="/Beauty">Beauty</Link>
+                        <span>Beauty</span>
                     </div>
                     <div className="MENHOV" onMouseOver={() => showMenu('Stationery')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                        <Link to="/Stationery">Stationery</Link>
+                        <span>Stationery</span>
                     </div>
                     <div className="MENHOV" onMouseOver={() => showMenu('Food')} id="menitmSAL" style={{ display: 'inline', padding: '5px 5px' }}>
-                        <Link to="/Food">Food</Link>
+                        <span>Food</span>
                     </div>
                 </div>
             </div>
@@ -114,18 +114,8 @@ function MenuFull() {
                     >
                         <div className="">
                             <div className="PAD6">
-                                <Link to="women/women-shirts" className="FNT13">
-                                    Shirts
-                                </Link>
-                            </div>
-                            <div className="PAD6">
-                                <Link to="women/women-trousers" className="FNT13">
-                                    Trousers
-                                </Link>
-                            </div>
-                            <div className="PAD6">
-                                <Link to="women/women-jackets" className="FNT13">
-                                    Jackets
+                                <Link to="Travel/4" className="FNT13">
+                                    Travel Accessories
                                 </Link>
                             </div>
                         </div>
@@ -179,8 +169,13 @@ function MenuFull() {
                     >
                         <div className="">
                             <div className="PAD6">
-                                <Link to="baby/baby-clothes" className="FNT13">
-                                    Baby Clothes & Accessories
+                                <Link to="Furniture/5" className="FNT13">
+                                    Living Room Furniture
+                                </Link>
+                            </div>
+                            <div className="PAD6">
+                                <Link to="Furniture/6" className="FNT13">
+                                    Dining Room Furniture
                                 </Link>
                             </div>
                         </div>
@@ -234,13 +229,13 @@ function MenuFull() {
                     >
                         <div className="">
                             <div className="PAD6">
-                                <Link to="furniture/beds" className="FNT13">
-                                    Beds
+                                <Link to="Beauty/7" className="FNT13">
+                                    Skincare
                                 </Link>
                             </div>
                             <div className="PAD6">
-                                <Link to="urniture/mattresses" className="FNT13">
-                                    Mattresses
+                                <Link to="Beauty/8" className="FNT13">
+                                    Bodycare
                                 </Link>
                             </div>
                         </div>
@@ -294,23 +289,18 @@ function MenuFull() {
                     >
                         <div className="">
                             <div className="PAD6">
-                                <Link to="beauty/ageing-care" className="FNT13">
-                                    Ageing Care
+                                <Link to="Stationery/9" className="FNT13">
+                                    Pens & Pencils
                                 </Link>
                             </div>
                             <div className="PAD6">
-                                <Link to="beauty/cleansing" className="FNT13">
-                                    Cleansing
+                                <Link to="Stationery/10" className="FNT13">
+                                    Notebooks & Paper
                                 </Link>
                             </div>
                             <div className="PAD6">
-                                <Link to="beauty/toning" className="FNT13">
-                                    Toning
-                                </Link>
-                            </div>
-                            <div className="PAD6">
-                                <Link to="beauty/moisturising" className="FNT13">
-                                    Moisturising
+                                <Link to="Stationery/11" className="FNT13">
+                                    Gifts & Gift Wrapping
                                 </Link>
                             </div>
                         </div>
@@ -364,23 +354,13 @@ function MenuFull() {
                     >
                         <div className="">
                             <div className="PAD6">
-                                <Link to="stationery/pen-sets" className="FNT13">
-                                    Pen Sets
+                                <Link to="Food/12" className="FNT13">
+                                    Rice, Pasta & Curries
                                 </Link>
                             </div>
                             <div className="PAD6">
-                                <Link to="stationery/gel-pens" className="FNT13">
-                                    Gel Pens
-                                </Link>
-                            </div>
-                            <div className="PAD6">
-                                <Link to="stationery/ruled-notebooks" className="FNT13">
-                                    Ruled Notebooks
-                                </Link>
-                            </div>
-                            <div className="PAD6">
-                                <Link to="stationery/plain-notebooks" className="FNT13">
-                                    Plain Notebooks
+                                <Link to="Food/13" className="FNT13">
+                                    Crisps, Snacks & Nuts
                                 </Link>
                             </div>
                         </div>
