@@ -12,18 +12,7 @@ import { RootContext } from "../../App";
 
 function Home() {
 
-  const { userStore } = useContext(RootContext);
-  const { cartStore } = useContext(RootContext);
-
-  // const totalCart = cartStore.data?.cart_details.reduce((total, product) => {
-  //   return total + product.quantity
-  // }, 0);
-
-  // console.log("totalCart", totalCart)
-
-  // const [cartItemCount, setCartItemCount] = useState(totalCart);
-
-  // console.log("cartItemCount", cartItemCount)
+  const { userStore, cartStore } = useContext(RootContext);
 
   const { t } = useTranslation();
 

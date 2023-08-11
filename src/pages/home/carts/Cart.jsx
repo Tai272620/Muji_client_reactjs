@@ -3,7 +3,7 @@ import './cart.scss';
 import { RootContext } from '../../../App';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
-import { randomId } from '@mieuteacher/meomeojs';
+import { convertToUSD, randomId } from '@mieuteacher/meomeojs';
 
 export default function Cart() {
 
@@ -11,10 +11,12 @@ export default function Cart() {
 
     const [cartItems, setCartItems] = useState(null);
 
-    // console.log("cartItems", cartItems)
-
     const totalCart = cartStore?.data?.cart_details?.reduce((total, product) => {
         return total + product.quantity
+    }, 0);
+
+    const subTotal = cartStore?.data?.cart_details?.reduce((total, product) => {
+        return total + (product.quantity * product.product.price)
     }, 0);
 
     useEffect(() => {
@@ -147,7 +149,7 @@ export default function Cart() {
                                                 <hr className="my-4" />
                                                 <div className="d-flex justify-content-between">
                                                     <p className="mb-2">Subtotal</p>
-                                                    <p className="mb-2">$4798.00</p>
+                                                    <p className="mb-2">{convertToUSD(subTotal)}</p>
                                                 </div>
                                                 <div className="d-flex justify-content-between">
                                                     <p className="mb-2">Shipping</p>
@@ -155,14 +157,14 @@ export default function Cart() {
                                                 </div>
                                                 <div className="d-flex justify-content-between mb-4">
                                                     <p className="mb-2">Total(Incl. taxes)</p>
-                                                    <p className="mb-2">$4818.00</p>
+                                                    <p className="mb-2">{convertToUSD(subTotal + 20)}</p>
                                                 </div>
                                                 <button
                                                     type="button"
                                                     className="btn btn-info btn-block btn-lg"
                                                 >
                                                     <div className="d-flex justify-content-between">
-                                                        <span>$4818.00</span>
+                                                        <span>{convertToUSD(subTotal + 20)}</span>
                                                         <span>
                                                             Checkout{" "}
                                                             <i className="fas fa-long-arrow-alt-right ms-2" />

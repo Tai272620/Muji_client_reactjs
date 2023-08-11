@@ -38,6 +38,7 @@ export default function ProductItem() {
             </div>
             <div className='productItem_infor'>
                 <h3>{productStore?.data?.name}</h3>
+                <p>{productStore?.data?.des}</p>
                 <p>{convertToUSD(productStore?.data?.price)}</p>
                 <button className='add_to_cart_btn' onClick={() => addToCart(userStore?.data?.id, {
                     product_id: productStore?.data?.id,

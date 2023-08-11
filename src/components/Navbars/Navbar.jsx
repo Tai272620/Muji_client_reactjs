@@ -12,8 +12,6 @@ export default function Navbar({ userStore, cartStore }) {
     return total + product.quantity
   }, 0);
   const [cartCount, setCartCount] = useState(totalCart)
-  // console.log("totalCart", totalCart)
-  // console.log("cartStore", cartStore.data)
   const navigate = useNavigate();
   const [isShown, setIsShown] = useState(false);
   const [isLogin, setIsLogin] = useState(() => localStorage.getItem("token") || null);

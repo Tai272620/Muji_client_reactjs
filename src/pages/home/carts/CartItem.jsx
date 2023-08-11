@@ -19,6 +19,78 @@ export default function CartItem({ product }) {
                 }
             })
     }
+
+    function updateCart(typeBtn) {
+
+        if (typeBtn == "-") {
+            if (quantity == 1) {
+                if (confirm("xóa ok!")) {
+                    api.purchase.updateCart(userStore?.data?.id, {
+                        type: 0,
+                        cart_detail_record_edited: {
+                            id: product.id
+                        }
+                    }).then(res => {
+                        api.purchase.findCart(userStore.data?.id)
+                            .then(res => {
+                                if (res.status == 200) {
+                                    dispatch(actions.cartActions.setCartData(res.data?.data))
+                                } else {
+                                    alert('error')
+                                }
+                            }).catch(err => {
+                                alert('sap !')
+                            })
+                    }).catch(err => {
+                        alert('error!')
+                    })
+                } else {
+                    return
+                }
+            }
+            api.purchase.updateCart(userStore?.data?.id, {
+                type: 1,
+                cart_detail_record_edited: {
+                    id: product.id,
+                    quantity: quantity - 1
+                }
+            }).then(res => {
+                api.purchase.findCart(userStore.data?.id)
+                    .then(res => {
+                        if (res.status == 200) {
+                            dispatch(actions.cartActions.setCartData(res.data?.data))
+                        } else {
+                            alert('error')
+                        }
+                    }).catch(err => {
+                        alert('sap !')
+                    })
+            }).catch(err => {
+                alert('error!')
+            })
+        } else {
+            api.purchase.updateCart(userStore?.data?.id, {
+                type: 1,
+                cart_detail_record_edited: {
+                    id: product.id,
+                    quantity: quantity + 1
+                }
+            }).then(res => {
+                api.purchase.findCart(userStore.data?.id)
+                    .then(res => {
+                        if (res.status == 200) {
+                            dispatch(actions.cartActions.setCartData(res.data?.data))
+                        } else {
+                            alert('error')
+                        }
+                    }).catch(err => {
+                        alert('sap !')
+                    })
+            }).catch(err => {
+                alert('error!')
+            })
+        }
+    }
     return (
         <div className="card mb-3">
             <div className="card-body">
@@ -39,20 +111,16 @@ export default function CartItem({ product }) {
                     </div>
                     <div className="d-flex flex-row align-items-center">
                         <div style={{ width: 50 }} className='product_quantity'>
-                            <span className="material-symbols-outlined" onClick={() => {
-                                if (quantity > 1) {
-                                    setQuantity(quantity - 1);
-                                }
-                            }}>
+                            <button><span className="material-symbols-outlined" onClick={() => updateCart("-")}>
                                 remove
-                            </span>
+                            </span></button>
                             <h5 className="fw-normal mb-0">{quantity}</h5>
-                            <span className="material-symbols-outlined" onClick={() => setQuantity(quantity + 1)}>
+                            <button><span className="material-symbols-outlined" onClick={() => updateCart("+")}>
                                 add
-                            </span>
+                            </span></button>
                         </div>
                         <div style={{ width: 80 }}>
-                            <h5 className="mb-0">{convertToUSD(product.product.price)}</h5>
+                            <h5 className="mb-0">{convertToUSD(product.product.price * quantity)}</h5>
                         </div>
                         <a href="#!" style={{ color: "#cecece" }} onClick={() => handleDelete(product.id)}>
                             <i className="fas fa-trash-alt" />

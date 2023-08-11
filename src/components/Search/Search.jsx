@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./search.scss";
 import { useDispatch, useSelector } from 'react-redux';
-import { convertToVND } from '@mieuteacher/meomeojs';
+import { convertToVND, randomId } from '@mieuteacher/meomeojs';
 import { useNavigate } from 'react-router-dom';
 import api from '@api';
 import product from '../../services/api/modules/product';
@@ -48,7 +48,7 @@ function SearchModal() {
             }
         }, 700); // sau 700 ms không gõ thì thực thi
     }
-    // console.log("searchData", searchData);
+    console.log("searchData", searchData);
     return (
         <>
             <Button variant="light" onClick={handleShow} size="sm" className="search-btn-container">
@@ -94,7 +94,7 @@ function SearchModal() {
                             <h3>SUGGESTED PRODUCTS</h3>
                             <div className='search-product-container'>
                                 {searchData?.map((product, index) => (
-                                    <div className='product' onClick={() => { navigate(`/products/${product.id}`), handleClose() }}>
+                                    <div key={randomId()} className='product' onClick={() => { navigate(`/products/${product.id}`), handleClose() }}>
                                         <img src={product.avatar} alt="" />
                                     </div>
                                 ))}
