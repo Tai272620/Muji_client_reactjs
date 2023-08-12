@@ -14,22 +14,12 @@ function Home() {
 
   const { userStore, cartStore } = useContext(RootContext);
 
-  // useEffect(() => {
-  //   console.log("userStore", userStore.data?.role);
-  // }, [userStore])
-
   const checkAdmin = () => {
     if (userStore.data?.role == "ADMIN") {
       return true
     }
     return false
   }
-
-  // useEffect(() => {
-  //   console.log("checkAdmin", checkAdmin());
-  // }, [userStore])
-
-  // console.log("userStore", userStore);
 
   const { t } = useTranslation();
 

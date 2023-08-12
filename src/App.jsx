@@ -25,6 +25,10 @@ function App() {
   }, [])
 
   useEffect(() => {
+    dispatch(actions.categoryActions.findAllCategory())
+  }, [])
+
+  useEffect(() => {
     if (!store.userStore.data) {
       return
     }
@@ -47,6 +51,7 @@ function App() {
       {
         userStore: store.userStore,
         cartStore: store.cartStore,
+        categories: store.categoryStore,
         dispatch
       }
     }>

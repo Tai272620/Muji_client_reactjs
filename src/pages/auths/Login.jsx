@@ -34,7 +34,7 @@ export default function Login() {
           setErrorMessage('Login failed. Please check your credentials.');
         } else {
           localStorage.setItem('token', result.data.token);
-          message.success('Login Successfully!');
+          message.success('Login Successfully');
           setTimeout(() => {
             // navigate('/');
             window.location.href = "/"

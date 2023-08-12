@@ -24,7 +24,7 @@ export default function DropdownLogout({ userStore }) {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                    <a className="dropdown-item" href="profile">
+                    <a className="dropdown-item" href="/profile">
                         Profile
                     </a>
                 </li>

@@ -6,8 +6,8 @@ const findProductById = createAsyncThunk("/findProductById", async (id) => {
     return result.data;
 });
 
-const findByCategory = createAsyncThunk("/findByCategory", async (category_id) => {
-    let result = await api.products.findByCategory(category_id);
+const findByCategoryId = createAsyncThunk("/findByCategory", async (category_id) => {
+    let result = await api.categories.findByCategory(category_id);
     return result.data;
 });
 
@@ -36,7 +36,7 @@ const productSlice = createSlice({
             state.data = [...action.payload.data]
         });
         // find products by category
-        builder.addCase(findByCategory.fulfilled, (state, action) => {
+        builder.addCase(findByCategoryId.fulfilled, (state, action) => {
             state.data = [...action.payload.data]
         });
         builder.addMatcher(
@@ -72,7 +72,7 @@ export const productActions = {
     ...productSlice.actions,
     findProductById,
     findAllProducts,
-    findByCategory
+    findByCategoryId
 }
 
 export const productReducer = productSlice.reducer;

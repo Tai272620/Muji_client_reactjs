@@ -6,6 +6,6 @@ export default (
         <Route path="register" element={LazyLoad(() => import("./Register"))()}></Route>
         <Route path="login" element={LazyLoad(() => import("./Login"))()}></Route>
         {/* <Route path="profile" element={LazyLoad(() => import("./Info"))()}></Route> */}
-        <Route path="profile" element={LazyLoad(() => import("./ProfilePage"))()}></Route>
+        <Route path="/profile" element={LazyLoad(() => import("./ProfilePage"))()}></Route>
     </>
 );

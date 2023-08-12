@@ -49,17 +49,17 @@ function MenuFull() {
                     >
                         <div className="">
                             <div className="PAD6">
-                                <Link to="Homeware/1" className="FNT13">
+                                <Link to="/Homeware/1" className="FNT13">
                                     Bedding
                                 </Link>
                             </div>
                             <div className="PAD6">
-                                <Link to="Homeware/2" className="FNT13">
+                                <Link to="/Homeware/2" className="FNT13">
                                     Cooking & Dining
                                 </Link>
                             </div>
                             <div className="PAD6">
-                                <Link to="Homeware/3" className="FNT13">
+                                <Link to="/Homeware/3" className="FNT13">
                                     Utility
                                 </Link>
                             </div>

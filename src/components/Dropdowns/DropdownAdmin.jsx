@@ -1,6 +1,6 @@
 import React from 'react';
 import './dropdown.scss';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function DropdownLogout({ userStore }) {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ export default function DropdownLogout({ userStore }) {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li>
-                    <a className="dropdown-item" href="admin">
+                    <a className="dropdown-item" onClick={() => window.location.assign(`${process.env.REACT_APP_DOMAIN}/profile`)}>
                         Admin
                     </a>
                 </li>
