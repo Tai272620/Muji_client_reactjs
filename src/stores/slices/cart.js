@@ -43,6 +43,7 @@ const cartSlice = createSlice({
 
         // add to cart
         builder.addCase(addToCart.fulfilled, (state, action) => {
+            // console.log("action.payload.data", action.payload);
             message.success("Add To Cart Successfully")
             state.data = { ...action.payload.data }
         });

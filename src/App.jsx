@@ -25,6 +25,10 @@ function App() {
   }, [])
 
   useEffect(() => {
+    dispatch(actions.productActions.findAllProducts())
+  }, [])
+
+  useEffect(() => {
     dispatch(actions.categoryActions.findAllCategory())
   }, [])
 
@@ -52,6 +56,7 @@ function App() {
         userStore: store.userStore,
         cartStore: store.cartStore,
         categories: store.categoryStore,
+        productStore: store.productStore,
         dispatch
       }
     }>

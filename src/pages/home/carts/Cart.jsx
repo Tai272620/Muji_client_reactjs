@@ -165,10 +165,10 @@ export default function Cart() {
                                                 >
                                                     <div className="d-flex justify-content-between">
                                                         <span>{convertToUSD(subTotal + 20)}</span>
-                                                        <span>
+                                                        <Link to="/payment">
                                                             Checkout{" "}
                                                             <i className="fas fa-long-arrow-alt-right ms-2" />
-                                                        </span>
+                                                        </Link>
                                                     </div>
                                                 </button>
                                             </div>
