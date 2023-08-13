@@ -5,12 +5,40 @@ import DropdownLogout from '../Dropdowns/DropdownLogout';
 import DropdownLogin from '../Dropdowns/DropdownLogin';
 import MenuFull from '../Menus/MenuFull';
 import SearchModal from '../Search/Search';
+import { RootContext } from '../../App';
+import api from "@api";
 
 
 export default function Navbar({ userStore, cartStore }) {
-  const totalCart = cartStore?.data?.cart_details?.reduce((total, product) => {
-    return total + product.quantity
-  }, 0);
+  const { localCartState } = useContext(RootContext);
+  const [cartLocalTotal, setCartLocalTotal] = useState(null);
+
+  async function totalCartAsync() {
+    if (!localStorage.getItem("token")) {
+      if (localStorage.getItem("carts")) {
+        let carts = JSON.parse(localStorage.getItem('carts'));
+        for (let i in carts) {
+          carts[i].product = await api.products.findProductById(carts[i].product_id).then(res => res.data.data);
+        }
+        let total = carts.reduce((result, nextItem) => {
+          return result += nextItem.quantity;
+        }, 0)
+
+        setCartLocalTotal(total);
+      }
+    }
+  }
+
+  useEffect(() => {
+    totalCartAsync();
+  }, [localCartState])
+
+  function totalCart() {
+    return cartStore.data?.cart_details?.reduce((result, nextItem) => {
+      return (result += nextItem.quantity);
+    }, 0)
+  }
+
   const [cartCount, setCartCount] = useState(totalCart)
   const navigate = useNavigate();
   const [isShown, setIsShown] = useState(false);
@@ -51,7 +79,7 @@ export default function Navbar({ userStore, cartStore }) {
               <span className='icon'>favorite</span>
             </span>
             <span className='cart-icon' onClick={() => navigate("/cart")}>
-              <span><ion-icon name="cart-outline"></ion-icon><span className='cart-quantity'>{totalCart ? totalCart : 0}</span></span>
+              <span><ion-icon name="cart-outline"></ion-icon><span className='cart-quantity'>{cartLocalTotal != null ? cartLocalTotal : totalCart()}</span></span>
               <span className='icon'>cart</span>
             </span>
           </div>

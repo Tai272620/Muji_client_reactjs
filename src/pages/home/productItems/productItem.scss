@@ -26,3 +26,13 @@
         }
     }
 }
+
+.count_product {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    margin-bottom: 20px;
+    .count {
+        padding: 0px 15px;
+    }
+}

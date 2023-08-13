@@ -1,57 +1,137 @@
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './login.scss';
 import validate from '@utils/validate';
 import api from '@api';
 import { useNavigate } from 'react-router-dom';
-import { message } from 'antd';
+import { message, Modal } from 'antd';
 
 export default function Login() {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
 
-    const user_name = e.target.user_name.value;
-    const password = e.target.password.value;
+  //   const user_name = e.target.user_name.value;
+  //   const password = e.target.password.value;
 
-    if (!user_name || !password) {
-      setErrorMessage('Please enter both user name (or email) and password.');
-      return;
-    }
+  //   if (!user_name || !password) {
+  //     setErrorMessage('Please enter both user name (or email) and password.');
+  //     return;
+  //   }
 
-    const data = {
-      user_name,
-      password,
-      type: !validate.isEmail(user_name), // Email false, User Name true
-    };
+  //   const data = {
+  //     user_name,
+  //     password,
+  //     type: !validate.isEmail(user_name), // Email false, User Name true
+  //   };
 
-    try {
-      const result = await api.users.login(data);
-      if (result.status === 200) {
-        if (result.data.token === undefined) {
-          setErrorMessage('Login failed. Please check your credentials.');
-        } else {
-          localStorage.setItem('token', result.data.token);
-          message.success('Login Successfully');
-          setTimeout(() => {
-            // navigate('/');
-            window.location.href = "/"
-          }, 2000);
-        }
-      } else {
-        setErrorMessage(result.data.message);
-      }
-    } catch (err) {
-      setErrorMessage('An error occurred while trying to log in.');
-    }
-  };
+  //   try {
+  //     let result = await api.users.login(data);
+  //     if (result.status == 200) {
+  //       if (result.data.token == undefined) {
+  //         Modal.error({
+  //           content: `${result.data.message}`,
+  //         });
+  //       } else {
+  //         localStorage.setItem("token", result.data.token);
+  //         if (localStorage.getItem("carts")) {
+  //           let carts = JSON.parse(localStorage.getItem("carts"));
+  //           await carts.map(async (item) => {
+  //             await api.purchase
+  //               .addToCart(result.data.userId, item)
+  //               .then((res) => {
+  //                 console.log("res", res);
+  //               })
+  //               .catch((err) => {
+  //                 alert("looix");
+  //               });
+  //             return item;
+  //           });
+  //           localStorage.removeItem("carts")
+  //           Modal.success({
+  //             content: `${result.data.message}`,
+  //             onOk: () => {
+  //               window.location.href = "/";
+  //             },
+  //           });
+  //         } else {
+  //           Modal.success({
+  //             content: `${result.data.message}`,
+  //             onOk: () => {
+  //               window.location.href = "/";
+  //             },
+  //           });
+  //         }
+  //       }
+  //     } else {
+  //       alert(result.data.message);
+  //     }
+  //   } catch (err) {
+  //     err;
+  //   }
+  // };
 
   return (
     <div className="login_container">
       <h2>Log In to your Account</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={async (e) => {
+        e.preventDefault();
+        let data = {
+          user_name: e.target.user_name.value,
+          password: e.target.password.value,
+          type: !validate.isEmail(e.target.user_name.value), // Email false, User Name true
+        };
+
+        try {
+          let result = await api.users.login(data);
+          if (result.status == 200) {
+            if (result.data.token == undefined) {
+              Modal.error({
+                content: `${result.data.message}`,
+              });
+            } else {
+              console.log(result.data)
+              localStorage.setItem("token", result.data.token);
+              if (localStorage.getItem("carts")) {
+                let carts = JSON.parse(localStorage.getItem("carts"));
+                console.log("carts", carts);
+                await carts.map(async (item) => {
+                  await api.purchase
+                    .addToCart(result.data.userId, item)
+                    .then((res) => {
+                      console.log("res", res);
+                    })
+                    .catch((err) => {
+                      alert("looix");
+                    });
+                  return item;
+                });
+                localStorage.removeItem("carts")
+                Modal.success({
+                  content: `${result.data.message}`,
+                  onOk: () => {
+                    window.location.href = "/";
+                  },
+                });
+              } else {
+                Modal.success({
+                  content: `${result.data.message}`,
+                  onOk: () => {
+                    window.location.href = "/";
+                  },
+                });
+              }
+            }
+          } else {
+            alert(result.data.message);
+          }
+        } catch (err) {
+          err;
+        }
+        {
+        }
+      }}>
         <div className="form-control">
           <label htmlFor="userName">User Name or Email:</label><br />
           <input type="text" name="user_name" id="userName" placeholder="User name or Email" />

@@ -1,4 +1,5 @@
 import "./main.scss";
+import { useState } from "react";
 import { Routes } from "react-router-dom";
 import { useEffect, createContext } from 'react';
 
@@ -16,6 +17,7 @@ export const RootContext = createContext();
 
 
 function App() {
+  const [localCartState, setLocalCartState] = useState(false);
   const store = useSelector(store => store)
   const dispatch = useDispatch();
 
@@ -74,6 +76,8 @@ function App() {
         categories: store.categoryStore,
         productStore: store.productStore,
         receiptStore: store.receiptStore,
+        localCartState,
+        setLocalCartState,
         dispatch
       }
     }>

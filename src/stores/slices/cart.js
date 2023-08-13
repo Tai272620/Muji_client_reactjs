@@ -1,17 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import { message } from 'antd';
-
-const addToCart = createAsyncThunk("/addToCart", async ({ userId, product }) => {
-    let result = await axios.post(`${process.env.REACT_APP_SERVER_HOST_API}/purchase/` + userId, product,
-        {
-            headers: {
-                Authorization: localStorage.getItem("token")
-            }
-        }
-    )
-    return result.data;
-});
 
 const cartSlice = createSlice({
     name: "cart",
@@ -41,12 +28,6 @@ const cartSlice = createSlice({
         //   state.data = [...action.payload.data];
         // });
 
-        // add to cart
-        builder.addCase(addToCart.fulfilled, (state, action) => {
-            // console.log("action.payload.data", action.payload);
-            message.success("Add To Cart Successfully")
-            state.data = { ...action.payload.data }
-        });
         builder.addMatcher(
             (action) => {
                 if (action.meta) {
@@ -78,7 +59,6 @@ const cartSlice = createSlice({
 
 export const cartActions = {
     ...cartSlice.actions,
-    addToCart,
 };
 
 export const cartReducer = cartSlice.reducer;
