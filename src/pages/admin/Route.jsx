@@ -1,6 +1,9 @@
 import { Route } from "react-router-dom";
 import LazyLoad from "@lazy/lazyLoading";
 import api from '@api';
+import AddProduct from "./AddProduct";
+import Product from "./Product";
+import User from "./User";
 
 let isAdmin = false;
 async function authenAdmin() {
@@ -26,6 +29,10 @@ async function authenAdmin() {
 
 export default (
     <>
-        <Route path="admin" element={await authenAdmin()}></Route>
+        <Route path="/admin" element={await authenAdmin()}>
+            <Route index element={<Product />}></Route>
+            <Route path="admin/add-product" element={<AddProduct />}></Route>
+            <Route path="admin/user" element={<User />}></Route>
+        </Route>
     </>
 );

@@ -51,7 +51,7 @@ export default function Navbar({ userStore, cartStore }) {
               <span className='icon'>favorite</span>
             </span>
             <span className='cart-icon' onClick={() => navigate("/cart")}>
-              <span><ion-icon name="cart-outline"></ion-icon><span className='cart-quantity'>{totalCart}</span></span>
+              <span><ion-icon name="cart-outline"></ion-icon><span className='cart-quantity'>{totalCart ? totalCart : 0}</span></span>
               <span className='icon'>cart</span>
             </span>
           </div>

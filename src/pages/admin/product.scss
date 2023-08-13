@@ -1,0 +1,24 @@
+.product-admin-container {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-evenly;
+    .products {
+        // width: 60%;
+        max-height: 600px;
+        overflow-y: auto;
+        tbody {
+            .product {
+                .product_image {
+                    img {
+                        width: 100px;
+                    }
+                }
+            }
+        }
+    }
+    .categories {
+        max-height: 600px;
+        overflow-y: auto;
+        width: 30%;
+    }
+}

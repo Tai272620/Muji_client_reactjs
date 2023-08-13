@@ -1,5 +1,6 @@
 import React from 'react';
 import './category.scss';
+import { Link } from 'react-router-dom';
 
 export default function Category() {
     return (
@@ -12,14 +13,14 @@ export default function Category() {
                 <img src="./images/categories/cate_02.avif" alt="" />
                 <p>Women's/Ladies</p>
             </div>
-            <div className='category_item'>
+            <Link to='http://localhost:3000/Beauty/7' className='category_item'>
                 <img src="./images/categories/cate_03.avif" alt="" />
-                <p>Women's/Ladies</p>
-            </div>
-            <div className='category_item'>
+                <p>Beauty/Skincare</p>
+            </Link>
+            <Link to="http://localhost:3000/Homeware/1" className='category_item'>
                 <img src="./images/categories/cate_04.avif" alt="" />
-                <p>Women's/Ladies</p>
-            </div>
+                <p>Homeware/Bedding</p>
+            </Link>
             <div className='category_item'>
                 <img src="./images/categories/cate_05.avif" alt="" />
                 <p>Women's/Ladies</p>
@@ -28,6 +29,6 @@ export default function Category() {
                 <img src="./images/categories/cate_06.avif" alt="" />
                 <p>Women's/Ladies</p>
             </div>
-        </div>
+        </div >
     )
 }

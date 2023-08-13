@@ -29,6 +29,11 @@ export default function DropdownLogout({ userStore }) {
                     </a>
                 </li>
                 <li>
+                    <a className="dropdown-item" href='/receipts'>
+                        Purchase History
+                    </a>
+                </li>
+                <li>
                     <a className="dropdown-item" onClick={() => {
                         handleLogout()
                     }}>

@@ -1,7 +1,7 @@
 .admin_container {
     width: 60%;
     border: 1px solid black;
-    margin: 150px auto;
+    margin: 100px auto;
     background-color: #435b70;
     color: #fff;
     padding: 30px;
@@ -48,5 +48,38 @@
         color: #fff;
         margin-top: 30px;
         padding: 10px 0px;
+    }
+}
+
+.nav_admin {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #557086;
+    color: #fff;
+    .nav_left {
+        flex: 1;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+    }
+    .nav_middle {
+        flex: 1;
+        display: flex;
+        justify-content: space-evenly;
+        .product-admin {
+            color: #fff;
+            cursor: pointer;
+        }
+        .product-user {
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    .nav_right {
+        flex: 1;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
     }
 }

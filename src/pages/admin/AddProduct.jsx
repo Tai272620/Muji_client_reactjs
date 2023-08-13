@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import './admin.scss';
 import axios from 'axios';
 import { message } from 'antd';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 message.config({
     top: 60,
@@ -12,38 +12,26 @@ message.config({
     prefixCls: 'my-message',
 });
 
-export default function Admin() {
-    // const urlPreviewRef = useRef();
-    // const [categories, setCategories] = useState([]);
-    // try {
-    //     useEffect(() => {
-    //         axios.get("http://localhost:4000/apis/v1/categories")
-    //             .then(res => {
-    //                 setCategories(res.data.data)
-    //             })
-    //             .catch(err => {
-    //                 console.log("err", err)
-    //             })
+export default function AddProduct() {
+    const urlPreviewRef = useRef();
+    const [categories, setCategories] = useState([]);
+    try {
+        useEffect(() => {
+            axios.get("http://localhost:4000/apis/v1/categories")
+                .then(res => {
+                    setCategories(res.data.data)
+                })
+                .catch(err => {
+                    console.log("err", err)
+                })
 
-    //     }, [])
-    // } catch (err) {
-    //     // console.log("err", err);
-    // }
-
+        }, [])
+    } catch (err) {
+        // console.log("err", err);
+    }
     return (
-        <>
-            <nav className='nav_admin'>
-                <Link to="/admin" className='nav_left'>Product Amin</Link>
-                <div className='nav_middle'>
-                    <Link to="admin/add-product" className='product-admin'>Product</Link>
-                    <Link to="admin/user" className='product-user' style={{ cursor: "pointer" }}>Account</Link>
-                </div>
-                <Link to="/" className='nav_right'>
-                    Home
-                </Link>
-            </nav>
-            <Outlet />
-            {/* <form className='admin_container' onSubmit={async (eventForm) => {
+        <div>
+            <form className='admin_container' onSubmit={async (eventForm) => {
                 eventForm.preventDefault();
 
                 let newProductInfor = {
@@ -114,7 +102,7 @@ export default function Admin() {
                 <div>
                     <button className='addProduct_btn' type='submit'>ADD PRODUCT NOW</button>
                 </div>
-            </form> */}
-        </>
+            </form>
+        </div>
     )
 }

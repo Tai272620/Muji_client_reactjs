@@ -25,10 +25,6 @@ function App() {
   }, [])
 
   useEffect(() => {
-    dispatch(actions.productActions.findAllProducts())
-  }, [])
-
-  useEffect(() => {
     dispatch(actions.categoryActions.findAllCategory())
   }, [])
 
@@ -50,6 +46,26 @@ function App() {
       })
   }, [store.userStore.data])
 
+  useEffect(() => {
+    if (!store.userStore.data) {
+      return;
+    }
+    api.receipts
+      .findReceipt(store.userStore.data?.id)
+      .then((res) => {
+        if (res.status == 200) {
+          dispatch(
+            actions.receiptActions.setReceiptData(res.data.data)
+          );
+        } else {
+          alert(res.data.message);
+        }
+      })
+      .catch((err) => {
+        alert("sập!");
+      });
+  }, [store.userStore.data]);
+
   return (
     <RootContext.Provider value={
       {
@@ -57,6 +73,7 @@ function App() {
         cartStore: store.cartStore,
         categories: store.categoryStore,
         productStore: store.productStore,
+        receiptStore: store.receiptStore,
         dispatch
       }
     }>
