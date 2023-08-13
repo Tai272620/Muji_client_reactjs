@@ -4,6 +4,8 @@ import api from '@api';
 import AddProduct from "./AddProduct";
 import Product from "./Product";
 import User from "./User";
+import UpdateProduct from "./UpdateProduct";
+import Receipt from "./Receipt";
 
 let isAdmin = false;
 async function authenAdmin() {
@@ -33,6 +35,8 @@ export default (
             <Route index element={<Product />}></Route>
             <Route path="admin/add-product" element={<AddProduct />}></Route>
             <Route path="admin/user" element={<User />}></Route>
+            <Route path="admin/update" element={<UpdateProduct />}></Route>
+            <Route path="admin/receipts-all" element={<Receipt />}></Route>
         </Route>
     </>
 );

@@ -26,6 +26,14 @@ const productSlice = createSlice({
         loading: true,
         data: null
     },
+    reducers: {
+        addProduct: (state, action) => {
+            state.data.unshift(action.payload);
+        },
+        addProducts: (state, action) => {
+            state.data = [...action.payload];
+        },
+    },
     extraReducers: (builder) => {
         // find product by Id
         builder.addCase(findProductById.fulfilled, (state, action) => {

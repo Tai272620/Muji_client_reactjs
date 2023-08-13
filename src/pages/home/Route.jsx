@@ -11,5 +11,6 @@ export default (
     <Route path="/products/:id" element={LazyLoad(() => import("./productItems/ProductItem"))()} />
     <Route path="/cart" element={LazyLoad(() => import("./carts/Cart"))()} />
     <Route path="/payment" element={LazyLoad(() => import("./carts/Payment"))()} />
+    <Route path="/store" element={LazyLoad(() => import("./maps/Map"))()} />
   </Route>
 );

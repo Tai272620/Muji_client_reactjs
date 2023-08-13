@@ -2,8 +2,10 @@ import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { convertToUSD, randomId } from '@mieuteacher/meomeojs';
 import './product.scss';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Switch from '../../components/Switchs/Switch';
+import UpdatePop from './UpdatePop';
+
 
 export default function Product() {
     const [products, setProducts] = useState([]);
@@ -37,7 +39,8 @@ export default function Product() {
     } catch (err) {
         // console.log("err", err);
     }
-    console.log("categories", categories)
+    // console.log("categories", categories)
+    const [updateData, setUpdateData] = useState(null);
     return (
         <div className='product-admin-container'>
             <div>
@@ -49,6 +52,7 @@ export default function Product() {
                                 <th scope="col">Product Image</th>
                                 <th scope="col">Product Name</th>
                                 <th scope="col">Price</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,15 +62,18 @@ export default function Product() {
                                     <td className="product_image"><img src={product.avatar} alt="" /></td>
                                     <td>{product.name}</td>
                                     <td>{convertToUSD(product.price)}</td>
+                                    <td><button onClick={() => {
+                                        setUpdateData(product);
+                                    }}>Update</button></td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
+                    {updateData ? <UpdatePop updateData={updateData} setUpdateData={setUpdateData} categories={categories} /> : <></>}
                 </div>
             </div>
             <div className='categories'>
                 <table className="table">
-                    {/* <h3>Product Categories</h3> */}
                     <thead>
                         <tr>
                             <th scope="col">#</th>

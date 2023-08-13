@@ -59,7 +59,7 @@ export default function Footer() {
                                 <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                                     {/* Links */}
                                     <h6 className="text-uppercase fw-bold mb-4">Store information</h6>
-                                    <p>
+                                    {/* <p>
                                         <a href="#!" className="text-reset">
                                             Angular
                                         </a>
@@ -78,7 +78,7 @@ export default function Footer() {
                                         <a href="#!" className="text-reset">
                                             Laravel
                                         </a>
-                                    </p>
+                                    </p> */}
                                 </div>
                                 {/* Grid column */}
                                 {/* Grid column */}
@@ -136,10 +136,6 @@ export default function Footer() {
                         className="text-center p-4"
                         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
                     >
-                        © 2021 Copyright:
-                        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-                            MDBootstrap.com
-                        </a>
                     </div>
                     {/* Copyright */}
                 </footer>

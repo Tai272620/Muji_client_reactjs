@@ -60,7 +60,7 @@ export default function Navbar({ userStore, cartStore }) {
       <div className='nav_content'>
         <div className="navbar-top">
           <span>MUJI Membership</span>
-          <span>Store Locator</span>
+          <span onClick={() => navigate("/store")}>Store Locator</span>
           {isAdmin ? <span onClick={() => navigate("/admin")}>Admin</span> : <span>Support Pages</span>}
         </div>
         <div className="navbar-bottom">

@@ -6,13 +6,13 @@ export default function Category() {
     return (
         <div className='category_container' id='category'>
             <div className='category_item'>
-                <img src="./images/categories/cate_01.avif" alt="" />
-                <p>Women's/Ladies</p>
+                <img src="./images/categories/cate_09.avif" alt="" />
+                <p>Retort freeze-dried</p>
             </div>
-            <div className='category_item'>
-                <img src="./images/categories/cate_02.avif" alt="" />
-                <p>Women's/Ladies</p>
-            </div>
+            <Link to="http://localhost:3000/Beauty/8" className='category_item'>
+                <img src="./images/categories/cate_08.avif" alt="" />
+                <p>Beauty/Bodycare</p>
+            </Link>
             <Link to='http://localhost:3000/Beauty/7' className='category_item'>
                 <img src="./images/categories/cate_03.avif" alt="" />
                 <p>Beauty/Skincare</p>
@@ -23,12 +23,12 @@ export default function Category() {
             </Link>
             <div className='category_item'>
                 <img src="./images/categories/cate_05.avif" alt="" />
-                <p>Women's/Ladies</p>
+                <p>Interior goods</p>
             </div>
-            <div className='category_item'>
+            <Link to="http://localhost:3000/Homeware/3" className='category_item'>
                 <img src="./images/categories/cate_06.avif" alt="" />
-                <p>Women's/Ladies</p>
-            </div>
+                <p>Homeware/Utility</p>
+            </Link>
         </div >
     )
 }
