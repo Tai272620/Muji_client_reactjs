@@ -48,6 +48,7 @@ export default function Payment() {
                 receiptDetails,
             })
             .then((res) => {
+                alert("Thank for purchase!")
                 message.success("Cảm ơn bạn đã mua hàng!");
                 // chuyển trang receipt
                 console.log("Đã save receipt", res.data);
@@ -199,9 +200,9 @@ export default function Payment() {
                                     value="MOMO"
                                 />
                                 <span>Momo</span>
-                                <div className="shippingDetails_button">
+                                {/* <div className="shippingDetails_button">
                                     <img src="../images/payment.png" />
-                                </div>
+                                </div> */}
                             </div>
                             <button
                                 type="submit"

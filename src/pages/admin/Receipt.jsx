@@ -46,7 +46,7 @@ export default function Receipt() {
                             <th scope="row">{index + 1}</th>
                             <td>{item.receipt_code}</td>
                             <td>{item.pay_mode}</td>
-                            <td>{item.paid}</td>
+                            <td>{item.paid ? "PAID" : "UNPAID"}</td>
                             <td>{convertToUSD(item.total)}</td>
                             <td>{item.create_at}</td>
                             <td>{item.users.user_name}</td>

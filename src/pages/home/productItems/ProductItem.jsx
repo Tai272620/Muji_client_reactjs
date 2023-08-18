@@ -1,7 +1,7 @@
 import { useEffect, useContext, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './productItem.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { productActions } from '../../../stores/slices/product';
 import { convertToUSD, randomId } from '@mieuteacher/meomeojs';
 import { RootContext } from '../../../App';
@@ -21,6 +21,7 @@ export default function ProductItem() {
     const { userStore, setLocalCartState, localCartState } = useContext(RootContext);
     const { id } = useParams();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const productStore = useSelector(store => store.productStore);
     const [quantity, setQuantity] = useState(1);
 
@@ -43,6 +44,8 @@ export default function ProductItem() {
                         .then((res) => {
                             if (res.status == 200) {
                                 dispatch(actions.cartActions.setCartData(res.data.data));
+                                message.success("add to cart success")
+                                // navigate("/")
                             } else {
                                 alert(res.data.message);
                             }

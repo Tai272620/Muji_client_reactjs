@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Modal } from "antd";
+import { Modal, message } from "antd";
 import api from '@api'
 import actions from "../../stores/actions";
 import './updatePop.scss';
@@ -21,7 +21,7 @@ export default function Update({ setUpdateData, categories, updateData, productA
 
         api.products.update(updateData.id, formData).then(res => {
             if (res.status == 200) {
-                Modal.success({
+                message.success({
                     content: res.data.message,
                     onOk: () => {
                         api.products
@@ -29,6 +29,7 @@ export default function Update({ setUpdateData, categories, updateData, productA
                             .then((res) => {
                                 if (res.status == 200) {
                                     dispatch(actions.productActions.addProducts(res.data.data));
+                                    alert("Update success")
                                     setUpdateData(false);
                                 } else {
                                     alert(res.data.message);
@@ -52,12 +53,16 @@ export default function Update({ setUpdateData, categories, updateData, productA
         <div className="product_update_pop">
             <div
                 onClick={() => {
-                    Modal.confirm({
-                        content: "Do you want to not update?",
-                        onOk: () => {
-                            setUpdateData(null);
-                        },
-                    });
+                    // message.success({
+                    //     content: "Do you want to not update?",
+
+                    //     // onOk: () => {
+                    //     //     setUpdateData(null);
+                    //     // },
+                    // });
+                    // message.success("Do you want to not update?");
+                    setUpdateData(null);
+
                 }}
                 className="over_hidden"
             ></div>

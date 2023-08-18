@@ -17,7 +17,7 @@ export default function Qr({ url, title, orderId }) {
             {/* <h2>{orderId}</h2> */}
             <QRCode
                 value={url}
-                icon="https://chatuchak.vn/image/cache/catalog/new/icon-tui-xach-200x200.png"
+                icon="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png"
             />
             <Spin indicator={antIcon} />
         </div>
